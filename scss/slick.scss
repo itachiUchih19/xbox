@@ -1,0 +1,242 @@
+/* Slider */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+}
+
+.slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+
+    [dir="rtl"] & {
+        float: right;
+    }
+
+    img {
+        display: block;
+    }
+
+    &.slick-loading img {
+        display: none;
+    }
+
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+}
+
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+.slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    color: transparent;
+    font-size: 18px;
+
+    @media screen and (max-width: 740px) {
+        font-size: 22px;
+    }
+}
+
+
+.slick-prev,
+.slick-next {
+    &.slick-disabled {
+        display: none;
+    }
+
+    span {
+        display: inline-block;
+        position: relative;
+        width: 18px;
+        height: 18px;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            content: '\f053';
+            display: inline-block;
+            font-family: 'icons' !important;
+            color: #8DD83D;
+        }
+    }
+}
+
+.slick-prev {
+    left: 60px;
+
+    @media screen and (max-width: 740px) {
+        left: 20px;
+    }
+
+    @media screen and (max-width: 420px) {
+        left: 0;
+    }
+}
+
+.slick-next {
+    right: 60px;
+
+    @media screen and (max-width: 740px) {
+        right: 20px;
+    }
+
+    @media screen and (max-width: 420px) {
+        right: 0;
+    }
+
+    span {
+        &::before {
+            content: '\f054';
+        }
+    }
+
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+
+    @media screen and (max-height: 630px) {
+        display: none;
+    }
+
+    li {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        position: relative;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+
+        button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: transparent;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 2px solid #8DD83D;
+        }
+
+        &.slick-active {
+            button {
+                background-color: #8DD83D;
+            }
+        }
+    }
+}
+
+.exclusive {
+    .slick-list {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        margin: 0;
+        padding: 35px;
+
+    }
+
+    .slick-arrow {
+        top: -60px;
+
+
+    }
+
+
+}
